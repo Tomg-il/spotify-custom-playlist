@@ -51,7 +51,7 @@ def create_playlist(name: str):
 def search_title(title_name: str):
     try:
         response = sp.search(q=title_name, type="track", limit=1, market="IL")
-    except:
+    except requests.exceptions.RequestException:
         print("search error")
         return
     else:
@@ -77,7 +77,7 @@ requested_date: datetime = datetime.strptime("01-01-1984", '%d-%m-%Y')
 scope = "playlist-modify-private"
 try:
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
-except:
+except requests.exceptions.RequestException:
     os.remove(".cache")
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
