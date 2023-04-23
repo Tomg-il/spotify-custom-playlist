@@ -1,5 +1,4 @@
 # this projest ask for a year from user, search the popular songs in this year and creates playlist
-import json
 from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
